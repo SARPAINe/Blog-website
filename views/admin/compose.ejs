@@ -1,0 +1,25 @@
+<%- include("../partials/admin_header"); -%>
+<h1>Compose</h1>
+<form action="/admin/compose" method="POST">
+<div class="form-group">
+  <label>Title</label>
+  <input type="text" class="form-control" name="postTitle"value="<%= postTitle %> ">
+  <br>
+  
+  <label>Post</label>
+  <textarea id="editor" name="postBody" class="form-control" cols="30" rows="5" value="<%= postBody %> " ></textarea>
+  
+<script>
+  ClassicEditor
+      .create( document.querySelector( '#editor' ) )
+      .catch( error => {
+          console.error( error );
+      } );
+</script>
+
+
+
+</div>
+<button type="submit" class="btn btn-primary">Publish</button>
+</form>
+<%- include("../partials/admin_footer"); -%>

@@ -1,5 +1,35 @@
 <%- include("partials/header"); -%>
 <h1><%= post.title %> </h1>
-<p><%= post.post %> </p>
+<br>
+<br>
+<%- post.post %>
+<br>
+<br>
+
+<form action="/posts/comment/<%=post._id%>" method="POST">
+<div class="form-group">
+  
+  <label>Leave a comment</label>
+  <textarea id="editor" name="postComment" class="form-control" cols="30" rows="5" ></textarea>
+  
+<script>
+  ClassicEditor
+      .create( document.querySelector( '#editor' ) )
+      .catch( error => {
+          console.error( error );
+      } );
+</script>
+
+
+
+</div>
+<button type="submit" class="btn btn-primary">Comment</button>
+</form>
+<br>
+<br>
+<% post.comment.forEach(comment=>{ %>
+  <%-comment%>
+  <br>
+<% }) %> 
 
 <%- include("partials/footer"); -%>

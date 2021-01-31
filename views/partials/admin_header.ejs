@@ -10,11 +10,9 @@
   <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
   <nav class="navbar navbar-default">
     <div class="container">
-      <div class="navbar-header">
-        <a class="item-home" href="/">
+      <a class="item-home" href="/">
           <p class="navbar-brand">MY STORIES</p>
         </a>
-      </div>
       <ul class="nav navbar-nav navbar-right">
         <!-- 6 -->
         <% if(user){ %>
@@ -31,7 +29,7 @@
   </nav>
 
 <body>
-  <div class="container container-wrap">
+  <div class="container">
     <%- messages('messages', locals) %>
 
     <%  if(errors){%>

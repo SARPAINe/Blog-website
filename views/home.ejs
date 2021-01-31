@@ -6,10 +6,8 @@
 
 <% posts.forEach(post => {%>
 <h3><%=post.title %></h3>
-<p>
-  <%= post.post.substring(0,100);%>...
-  <a href="/post/<%= post._id %>"> Read More </a>
-</p>
+  <%- post.post.substring(0,200);%>...
+  <a href="/posts/<%= post._id %>"> Full story </a>
 
 <%}); %>
 

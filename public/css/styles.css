@@ -1,3 +1,6 @@
+.container-wrap{
+    min-height: 90vh;
+}
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
@@ -14,22 +17,55 @@
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
 }
+.container a:hover{
+    color: #1abc9c !important;
+}
 
 .footer-padding {
 	padding-bottom: 60px;
 }
-
+#contact2 {
+    width: 100%;
+    /* height: 2.5rem;  */
+    padding: 20px 20px 20px 20px;
+    background: #ebebeb;
+    color: #e6af2e;
+}
 .footer {
-	position: absolute;
-	text-align: center;
-	bottom: 0;
-	width: 100%;
-	height: 60px;
-    background-color: #1abc9c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.footer p {
-	margin-top: 25px;
-	font-size: 20px;
-    color: #fff;
+.info {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 10px;
+    font-size: 12px;
+    letter-spacing: 5px;
+    flex-wrap: wrap;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.42857143;
+    color: #333;
+}
+.copyright{
+    margin-left: 50px;
+    font-size: 12px;
+    letter-spacing: 5px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.42857143;
+    color: #333;
+}
+.item{
+    margin: 10px;
+}
+.info a{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #333;
+}
+.info a:hover {
+    color: #1abc9c !important;
 }

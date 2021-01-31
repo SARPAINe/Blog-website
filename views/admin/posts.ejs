@@ -1,0 +1,37 @@
+<%- include('../partials/admin_header.ejs'); -%>
+<h2 class="page-title">Posts</h2>
+<a href="/admin/compose" class="btn btn-primary">Add a new post</a>
+
+<br><br>
+
+<% if(count>0){%>
+
+<table class="table table-striped alignmiddle">
+  <thead>
+    <tr class="home">
+      <th>Post Title</th>
+      <th>Content</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% posts.forEach(post => {%>
+    <tr>
+      <td><%= post.title %> </td>
+      <td><%- post.post.substring(0,7);%>...
+  <a href="/posts/<%= post._id %>"> Full story </a></td>
+
+      <td><a href="/admin/posts/edit-post/<%= post._id%>">Edit</a></td>
+
+      <td><a class="confrimDeletion" onclick="return confirm('Are you sure you want to Delete?');"
+          href="/admin/posts/delete-post/<%= post._id%>">Delete</a></td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+<% }else{ %>
+<h3 class="text-center">There are no Posts.</h3>
+<% } %>
+
+<%- include('../partials/admin_footer.ejs'); -%>
