@@ -5,6 +5,9 @@
 
 
 <% posts.forEach(post => {%>
+<br>
+<br>
+<br>
 <h3><%=post.title %></h3>
   <%- post.post.substring(0,200);%>...
   <a href="/posts/<%= post._id %>"> Full story </a>

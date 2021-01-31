@@ -2,14 +2,15 @@ const express=require('express');
 const router=express.Router();
 const Post=require('../models/post');
 
-router.get('/posts',async (req,res)=>{
+const auth=require('../config/auth');
+const isAdmin=auth.isAdmin;
+router.get('/posts',isAdmin,async (req,res)=>{
   let count;
   count = await Post.countDocuments((err,c)=>{
     count=c;
     
   });
   Post.find((err,posts)=>{
-   
     res.render('admin/posts',{
       count:count,
       posts:posts
@@ -17,14 +18,14 @@ router.get('/posts',async (req,res)=>{
   });
 });
 
-router.get("/compose", (req, res) => {
+router.get("/compose", isAdmin,(req, res) => {
   res.render("admin/compose",{
     postTitle:"",
     postBody:""
   });
 });
 
-router.post("/compose", (req, res) => {
+router.post("/compose",isAdmin, (req, res) => {
   console.log(req.body);
   const post = new Post(
     {
@@ -38,7 +39,7 @@ router.post("/compose", (req, res) => {
 })
 
 //get edit post
-router.get('/posts/edit-post/:id',async (req,res,next)=>{
+router.get('/posts/edit-post/:id',isAdmin,async (req,res,next)=>{
   let post;
   try{
     post=await Post.findById(req.params.id);
@@ -54,7 +55,7 @@ router.get('/posts/edit-post/:id',async (req,res,next)=>{
 });
 
 //post edit post
-router.post('/posts/edit-post/:id',async (req,res,next)=>{
+router.post('/posts/edit-post/:id',isAdmin,async (req,res,next)=>{
   let post;
   try{
     post=await Post.findById(req.params.id);
@@ -74,7 +75,7 @@ router.post('/posts/edit-post/:id',async (req,res,next)=>{
 });
 
 //delete post
-router.get('/posts/delete-post/:id',async (req,res,next)=>{
+router.get('/posts/delete-post/:id',isAdmin,async (req,res,next)=>{
   try{
     post=await Post.findById(req.params.id);
   }catch(error)

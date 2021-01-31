@@ -2,6 +2,8 @@ const express=require('express');
 const router=express.Router();
 const Post=require('../models/post');
 
+const auth=require('../config/auth');
+const isUser=auth.isUser;
 
 
 router.get("/:postID", (req, res) => {
@@ -13,7 +15,7 @@ router.get("/:postID", (req, res) => {
 
 });
 
-router.post("/comment/:postID", (req, res) => {
+router.post("/comment/:postID",isUser, (req, res) => {
 
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   console.log(req.body);
